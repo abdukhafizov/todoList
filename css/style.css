@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+    font-family: "Gilroy";
+}
+
+body {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.todo_mind {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+h1 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+input {
+    width: 321px;
+    height: 42px;
+    border-radius: 10px;
+    border: 3px solid #007FFF;
+}
+input:hover{
+    background-color: rgb(250, 248, 248);
+    transition: 1s ease;
+}
+input:not(:hover){
+    transition: 1s;
+}
+.add {
+    Width: 155px;
+    Height: 42px;
+    background-color: #007FFF;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 10px;
+    border: none;
+}
+
+.hr{
+    width: 1008px;
+    height: 1px;
+    background-color: rgba(1, 1, 1, 0.197);
+    margin: 40px 220px;
+}
+.cancel{
+    background-image: url(../img/x.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 13px;
+    height: 13px;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+.time{
+    font-size: 14px;
+    color: #0000008C;
+
+}
+
+.title{
+    font-weight: 600;
+    font-size: 18px;
+    font-family: Gilroy;
+}
+
+.box{
+    width: 282px;
+    height: 90px;
+    background-color: #F0F0F0;
+    border: 2px solid #007FFF;
+    border-radius: 10px;
+    
+}
+.all_boxes{
+    padding: 0 16px;
+}
+.title_with_cancel{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.all_about{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 0 70px;
+}
+
+.fade{
+    display: none;
+}
+
+.cancel:hover{
+    transform: scale(1.5);
+    transition: 1s ease;
+    border: #007FFF;
+} 
+.cancel:not(:hover){
+    transition: 1s ease;
+}
+
+
+.fade-in {
+    opacity: 1; /* Значение прозрачности после анимации */
+}
