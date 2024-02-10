@@ -17,22 +17,26 @@ let todos = [
 
 form.onsubmit = (event) => {
     event.preventDefault();
-    container.innerHTML = "";
+    let taskDescription = inputChanged.value.trim(); // Убираем лишние пробелы в начале и конце
+
+    if (taskDescription === '') {
+        inputChanged.style.border = "3px solid red"
+        return;
+    } else{
+        inputChanged.style.border = "3px solid #007FFF"
+    }
+
     let task = {
         id: Math.random(),
         time: new Date().getHours() + ":" + new Date().getMinutes(),
         isDone: false,
-        task: inputChanged.value 
+        task: taskDescription
     };
 
     todos.push(task);
-    reload(todos, section); 
+    reload(todos, section);
 
-    if (event) {
     console.log(task);
-    // box.classList.add("fade-in")
-}
-// box.style.transition = "1s ease"
 };
 
 
