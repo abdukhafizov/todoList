@@ -1,6 +1,6 @@
 let body = document.body
 let inputChanged = document.querySelector('input')
-let form = document.forms.reminders   
+let form = document.forms.reminders
 let section = document.createElement("section")
 let container = document.createElement("div")
 let all_about = document.createElement("div");
@@ -17,12 +17,12 @@ let todos = [
 
 form.onsubmit = (event) => {
     event.preventDefault();
-    let taskDescription = inputChanged.value.trim(); // Убираем лишние пробелы в начале и конце
+    let taskDescription = inputChanged.value.trim();
 
     if (taskDescription === '') {
         inputChanged.style.border = "3px solid red"
         return;
-    } else{
+    } else {
         inputChanged.style.border = "3px solid #007FFF"
     }
 
@@ -42,7 +42,7 @@ form.onsubmit = (event) => {
 
 function reload(arr) {
     all_about.innerHTML = "";
-    
+
     for (let item of arr) {
         let box = document.createElement("div");
         let all_boxes = document.createElement("div");
@@ -63,7 +63,7 @@ function reload(arr) {
         time.classList.add("time");
 
         title.textContent = item.task;
-        time.textContent = item.time; 
+        time.textContent = item.time;
 
         body.append(section);
         section.append(container);
@@ -73,22 +73,43 @@ function reload(arr) {
         all_boxes.append(title_with_cancel, time);
         title_with_cancel.append(title, cancel);
 
-        
         cancel.onclick = () => {
             let realy = confirm('вы правда хотите удалить задачу ' + item.task + "?")
 
             if (realy) {
                 box.classList.add('fade')
-                setTimeout(() => {
-                    todos = todos.filter(el => el.id !== item.id)
-                    reload(todos, section)
-                }, 100);
+                todos = todos.filter(el => el.id !== item.id)
+                reload(todos, section)
             }
+        }
+        box.ondblclick = () => {
+            let change = prompt("Введите новое описание задачи:");
+            if (change !== null && change.trim() !== '') {
+                title.textContent = change;
+                item.task = change;
+            }
+        }
+        title.onclick = () => {
+            if (!item.isDone) {
+                title.style.textDecoration = "line-through";
+                item.isDone = true;
+            } else {
+                title.style.textDecoration = "none";
+                item.isDone = false;
+            }
+            console.log(item);
+        }
+
+        if (item.isDone) {
+            title.style.textDecoration = "line-through";
+        } else {
+            title.style.textDecoration = "none";
         }
     }
 }
 
-reload(todos,section);
+reload(todos, section);
+
 
 // `
 //     <div class="box">

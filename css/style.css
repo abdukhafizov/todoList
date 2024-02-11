@@ -80,6 +80,7 @@ input:not(:hover){
     font-weight: 600;
     font-size: 18px;
     font-family: Gilroy;
+    font-style: inherit;
 }
 
 .box{
